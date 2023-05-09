@@ -110,7 +110,7 @@ export function Quiz() {
         {
           translateX: interpolate(
             shake.value,
-            [0, 0.5, 1, 1.5, 2, 2.5, 0],
+            [0, 0.5, 1, 1.5, 2, 2.5, 3],
             [0, -15, 0, 15, 0, -15, 0],
           ),
         },
