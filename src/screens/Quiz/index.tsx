@@ -12,7 +12,6 @@ import Animated, {
   withSequence,
   withTiming,
 } from 'react-native-reanimated';
-
 import { styles } from './styles';
 
 import { QUIZ } from '../../data/quiz';
@@ -21,6 +20,10 @@ import { historyAdd } from '../../storage/quizHistoryStorage';
 import { ConfirmButton } from '../../components/ConfirmButton';
 import { Loading } from '../../components/Loading';
 import { OutlineButton } from '../../components/OutlineButton';
+import {
+  OverlayFeedback,
+  StatusOverlayFeedbackEnum,
+} from '../../components/OverlayFeedback';
 import { ProgressBar } from '../../components/ProgressBar';
 import { Question } from '../../components/Question';
 import { QuizHeader } from '../../components/QuizHeader';
@@ -43,6 +46,10 @@ export function Quiz() {
   const [alternativeSelected, setAlternativeSelected] = useState<null | number>(
     null,
   );
+  const [statusReply, setStatusReply] = useState<StatusOverlayFeedbackEnum>(
+    StatusOverlayFeedbackEnum.DEFAULT,
+  );
+  const [showStatusReply, setShowStatusReply] = useState(false);
   const shake = useSharedValue(0);
   const scrollY = useSharedValue(0);
   const cardPosition = useSharedValue(0);
@@ -87,12 +94,16 @@ export function Quiz() {
     }
 
     if (quiz.questions[currentQuestion].correct === alternativeSelected) {
+      setStatusReply(StatusOverlayFeedbackEnum.SUCCESS);
       setPoints((prevState) => prevState + 1);
+      handleNextQuestion();
     } else {
+      setStatusReply(StatusOverlayFeedbackEnum.ERROR);
       shakeAnimation();
     }
 
     setAlternativeSelected(null);
+    setShowStatusReply(true);
   }
 
   function handleStop() {
@@ -112,7 +123,15 @@ export function Quiz() {
   }
 
   function shakeAnimation() {
-    shake.value = withSequence(withTiming(3), withTiming(0));
+    shake.value = withSequence(
+      withTiming(3),
+      withTiming(0, undefined, (finished) => {
+        if (finished) {
+          ('worklet');
+          runOnJS(handleNextQuestion)();
+        }
+      }),
+    );
   }
 
   const shakeStyleAnimated = useAnimatedStyle(() => {
@@ -195,18 +214,17 @@ export function Quiz() {
     setIsLoading(false);
   }, []);
 
-  useEffect(() => {
-    if (quiz.questions) {
-      handleNextQuestion();
-    }
-  }, [points]);
-
   if (isLoading) {
     return <Loading />;
   }
 
   return (
     <View style={styles.container}>
+      <OverlayFeedback
+        status={statusReply}
+        show={showStatusReply}
+        endAnimation={() => setShowStatusReply(false)}
+      />
       <Animated.View style={fixedProgressBarStyles}>
         <Text style={styles.title}>{quiz.title}</Text>
         <ProgressBar
