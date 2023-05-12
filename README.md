@@ -69,6 +69,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [Expo](https://expo.dev/)
 - [Expo AV](https://docs.expo.dev/versions/latest/sdk/av/)
+- [Expo Haptics](https://docs.expo.dev/versions/latest/sdk/haptics/)
 - [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/)
 - [React Native Skia](https://shopify.github.io/react-native-skia/)
 - [TypeScript](https://www.typescriptlang.org/pt/)

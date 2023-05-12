@@ -1,5 +1,6 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Audio } from 'expo-av';
+import * as Haptics from 'expo-haptics';
 import { useEffect, useState } from 'react';
 import { Alert, Text, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
@@ -102,7 +103,7 @@ export function Quiz() {
     } else {
       await playSound(false);
       setStatusReply(StatusOverlayFeedbackEnum.ERROR);
-      shakeAnimation();
+      await shakeAnimation();
     }
 
     setAlternativeSelected(null);
@@ -136,7 +137,8 @@ export function Quiz() {
     await sound.playAsync();
   }
 
-  function shakeAnimation() {
+  async function shakeAnimation() {
+    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
     shake.value = withSequence(
       withTiming(3),
       withTiming(0, undefined, (finished) => {
