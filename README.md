@@ -31,6 +31,7 @@ Nesse desafio foi desenvolvido um quiz de perguntas sobre programação utilizan
 - [x] Pular pergunta do quiz
 - [x] Acessar histórico dos quizzes realizados
 - [x] Excluir item do histórico
+- [x] Feedback sonoro ao responder questão
 
 ## 🧭 Como rodar o projeto
 
@@ -67,7 +68,9 @@ Abra o aplicativo do Expo no smartphone, aponte a câmera para o QRCode que apar
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [Expo](https://expo.dev/)
+- [Expo AV](https://docs.expo.dev/versions/latest/sdk/av/)
 - [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/)
+- [React Native Skia](https://shopify.github.io/react-native-skia/)
 - [TypeScript](https://www.typescriptlang.org/pt/)
 
 ## 🔖 Layout
