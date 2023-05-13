@@ -1,18 +1,18 @@
+import { Header } from '@components/Header';
+import { HistoryCard, HistoryProps } from '@components/HistoryCard';
+import { Loading } from '@components/Loading';
 import { useNavigation } from '@react-navigation/native';
+import { historyGetAll, historyRemove } from '@storage/quizHistoryStorage';
+import { THEME } from '@styles/theme';
 import { HouseLine, Trash } from 'phosphor-react-native';
 import { useEffect, useRef, useState } from 'react';
-import { Alert, Pressable, ScrollView, View } from 'react-native';
+import { Alert, ScrollView, View } from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
 import Animated, {
   Layout,
   SlideInRight,
   SlideOutRight,
 } from 'react-native-reanimated';
-import { Header } from '../../components/Header';
-import { HistoryCard, HistoryProps } from '../../components/HistoryCard';
-import { Loading } from '../../components/Loading';
-import { historyGetAll, historyRemove } from '../../storage/quizHistoryStorage';
-import { THEME } from '../../styles/theme';
 import { styles } from './styles';
 
 export function History() {

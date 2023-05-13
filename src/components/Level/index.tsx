@@ -7,7 +7,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import { THEME } from '../../styles/theme';
+import { THEME } from '@styles/theme';
 import { styles } from './styles';
 
 const PressableAnimated = Animated.createAnimatedComponent(Pressable);

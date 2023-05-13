@@ -9,7 +9,7 @@ import Animated, {
   withSequence,
   withTiming,
 } from 'react-native-reanimated';
-import { THEME } from '../../styles/theme';
+import { THEME } from '@styles/theme';
 
 const STATUS = [
   'transparent',

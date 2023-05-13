@@ -2,7 +2,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { Audio } from 'expo-av';
 import * as Haptics from 'expo-haptics';
 import { useEffect, useState } from 'react';
-import { Alert, Text, View, BackHandler } from 'react-native';
+import { Alert, BackHandler, Text, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
   Extrapolate,
@@ -16,20 +16,19 @@ import Animated, {
 } from 'react-native-reanimated';
 import { styles } from './styles';
 
-import { QUIZ } from '../../data/quiz';
-import { historyAdd } from '../../storage/quizHistoryStorage';
-
-import { ConfirmButton } from '../../components/ConfirmButton';
-import { Loading } from '../../components/Loading';
-import { OutlineButton } from '../../components/OutlineButton';
+import { ConfirmButton } from '@components/ConfirmButton';
+import { Loading } from '@components/Loading';
+import { OutlineButton } from '@components/OutlineButton';
 import {
   OverlayFeedback,
   StatusOverlayFeedbackEnum,
-} from '../../components/OverlayFeedback';
-import { ProgressBar } from '../../components/ProgressBar';
-import { Question } from '../../components/Question';
-import { QuizHeader } from '../../components/QuizHeader';
-import { THEME } from '../../styles/theme';
+} from '@components/OverlayFeedback';
+import { ProgressBar } from '@components/ProgressBar';
+import { Question } from '@components/Question';
+import { QuizHeader } from '@components/QuizHeader';
+import { QUIZ } from '@data/quiz';
+import { historyAdd } from '@storage/quizHistoryStorage';
+import { THEME } from '@styles/theme';
 
 const CARD_INCLINATION = 10;
 const CARD_SKIP_AREA = -200;
@@ -128,8 +127,8 @@ export function Quiz() {
 
   async function playSound(isCorrect: boolean) {
     const file = isCorrect
-      ? require('../../assets/correct.mp3')
-      : require('../../assets/wrong.mp3');
+      ? require('@assets/correct.mp3')
+      : require('@assets/wrong.mp3');
 
     const { sound } = await Audio.Sound.createAsync(file, { shouldPlay: true });
 

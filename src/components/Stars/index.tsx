@@ -8,9 +8,9 @@ import {
 import { View } from 'react-native';
 import Animated, { BounceIn } from 'react-native-reanimated';
 
-import TrophySvg from '../../assets/trophy.svg';
+import TrophySvg from '@assets/trophy.svg';
 
-import { THEME } from '../../styles/theme';
+import { THEME } from '@styles/theme';
 import { styles } from './styles';
 
 export function Stars() {

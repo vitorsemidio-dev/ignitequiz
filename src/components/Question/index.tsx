@@ -1,7 +1,7 @@
 import { Dimensions, Text } from 'react-native';
 import Animated, { Keyframe } from 'react-native-reanimated';
 
-import { Option } from '../Option';
+import { Option } from '@components/Option';
 import { styles } from './styles';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;

@@ -7,10 +7,10 @@ import {
 import Animated, { FadeInUp, FadeOut } from 'react-native-reanimated';
 
 import { styles } from './styles';
-import { THEME } from '../../styles/theme';
+import { THEME } from '@styles/theme';
 
-import { LevelBars } from '../LevelBars';
-import { QUIZZES } from '../../data/quizzes';
+import { LevelBars } from '@components/LevelBars';
+import { QUIZZES } from '@data/quizzes';
 
 const TouchableOpacityAnimated =
   Animated.createAnimatedComponent(TouchableOpacity);

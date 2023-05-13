@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { HistoryProps } from '../components/HistoryCard';
+import { HistoryProps } from '@components/HistoryCard';
 import { Alert } from 'react-native';
 
 const HISTORY_COLLECTION = '@ignite_quiz:history';
@@ -34,7 +34,7 @@ export async function historyRemove(id: string) {
   try {
     const storage = await historyGetAll();
 
-    const filtered = storage.filter(history => history.id !== id);
+    const filtered = storage.filter((history) => history.id !== id);
     const histories = JSON.stringify(filtered);
 
     await AsyncStorage.setItem(HISTORY_COLLECTION, histories);

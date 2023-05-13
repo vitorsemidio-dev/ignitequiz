@@ -1,9 +1,9 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Finish } from '../screens/Finish';
-import { History } from '../screens/History';
-import { Home } from '../screens/Home';
-import { Quiz } from '../screens/Quiz';
+import { Finish } from '@screens/Finish';
+import { History } from '@screens/History';
+import { Home } from '@screens/Home';
+import { Quiz } from '@screens/Quiz';
 
 const { Group, Navigator, Screen } = createNativeStackNavigator();
 

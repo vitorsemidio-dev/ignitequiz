@@ -11,7 +11,7 @@ import {
 import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 
 import { useEffect } from 'react';
-import { THEME } from '../../styles/theme';
+import { THEME } from '@styles/theme';
 import { styles } from './styles';
 
 const CHECK_SIZE = 28;
