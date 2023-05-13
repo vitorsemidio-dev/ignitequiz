@@ -42,6 +42,7 @@ type QuizProps = (typeof QUIZ)[0];
 export function Quiz() {
   const [points, setPoints] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [quiz, setQuiz] = useState<QuizProps>({} as QuizProps);
   const [alternativeSelected, setAlternativeSelected] = useState<null | number>(
@@ -85,7 +86,7 @@ export function Quiz() {
     if (currentQuestion < quiz.questions.length - 1) {
       setCurrentQuestion((prevState) => prevState + 1);
     } else {
-      handleFinished();
+      setIsPlaying(false);
     }
   }
 
@@ -237,6 +238,12 @@ export function Quiz() {
 
     return () => backHandler.remove();
   }, []);
+
+  useEffect(() => {
+    if (!isPlaying) {
+      handleFinished();
+    }
+  }, [isPlaying]);
 
   if (isLoading) {
     return <Loading />;
