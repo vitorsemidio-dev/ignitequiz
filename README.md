@@ -33,6 +33,12 @@ Nesse desafio foi desenvolvido um quiz de perguntas sobre programação utilizan
 - [x] Excluir item do histórico
 - [x] Feedback sonoro ao responder questão
 
+## 📹 Vídeos
+
+https://github.com/vitorsemidio-dev/ignitequiz/assets/52754546/0346a052-217d-44dc-9693-31764d297cac
+
+https://github.com/vitorsemidio-dev/ignitequiz/assets/52754546/94ffb0a8-a11b-4e32-abc6-7242e0538190
+
 ## 🧭 Como rodar o projeto
 
 ### 🚨 Requisitos
